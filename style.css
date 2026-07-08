@@ -348,6 +348,75 @@ a { color: inherit; text-decoration: none; }
   background: linear-gradient(var(--accent-soft), transparent);
 }
 
+/* === Architecture Blocks === */
+.arch-svg {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.arch-row {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.arch-block {
+  flex: 1;
+  min-width: 180px;
+  max-width: 280px;
+  padding: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+.arch-block:hover {
+  border-color: var(--accent-soft);
+}
+.arch-block-core {
+  border-color: var(--accent-soft);
+  background: linear-gradient(135deg, var(--bg-card), #0d1520);
+}
+.arch-block-wide {
+  max-width: 600px;
+}
+.arch-block-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+.arch-block-core .arch-block-label {
+  color: var(--accent);
+}
+.arch-block-sub {
+  font-size: 0.7rem;
+  color: var(--text-faint);
+  margin-bottom: 0.8rem;
+}
+.arch-block-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.arch-block-items span {
+  padding: 0.25rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text-dim);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+}
+.arch-arrow-down {
+  width: 1px;
+  height: 2.5rem;
+  margin: 0 auto;
+  background: linear-gradient(var(--accent-soft), transparent);
+}
+@media (max-width: 600px) {
+  .arch-row { flex-direction: column; align-items: center; }
+  .arch-block { width: 100%; max-width: none; }
+}
+
 /* === Quick Start === */
 .start-container {
   max-width: 1000px;
