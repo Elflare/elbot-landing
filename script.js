@@ -163,16 +163,8 @@ function buildArchBlocks(d) {
     <div class="arch-row">
       <div class="arch-block">
         <div class="arch-block-label">${d['arch.sources']}</div>
+        <div class="arch-block-sub">Elvena Protocol</div>
         <div class="arch-block-items">${items(['Server / Log', 'RSS / Webpage', 'Webhook', 'Game Event', 'Script / Device', 'More ...'])}</div>
-      </div>
-      <div class="arch-block arch-block-core">
-        <div class="arch-block-label">${d['arch.elvena']}</div>
-        <div class="arch-block-sub">${d['arch.elvenaSub']}</div>
-      </div>
-      <div class="arch-block">
-        <div class="arch-block-label">${d['arch.elnis']}</div>
-        <div class="arch-block-sub">${d['arch.elnisSub']}</div>
-        <div class="arch-block-items">${items(['Ingress', 'Auth', 'Dedup', 'Route'])}</div>
       </div>
     </div>
     <div class="arch-arrow-down"></div>
@@ -180,7 +172,7 @@ function buildArchBlocks(d) {
       <div class="arch-block arch-block-core arch-block-wide">
         <div class="arch-block-label">${d['arch.elbot']}</div>
         <div class="arch-block-sub">${d['arch.elbotSub']}</div>
-        <div class="arch-block-items">${items(['Agent', 'Hook', 'ToolRun', 'Security', 'Output'])}</div>
+        <div class="arch-block-items">${items(['Elnis', 'Agent', 'Hook', 'ToolRun', 'Security', 'Output'])}</div>
       </div>
     </div>
     <div class="arch-arrow-down"></div>
