@@ -28,15 +28,24 @@ const i18n = {
     'features.dual.title': 'Dual Mode',
     'features.dual.desc': 'Chat for casual talk, Work for complex tasks. Independent models per mode.',
     'arch.title': 'Architecture',
-    'arch.sources': 'External World + Elwisp',
-    'arch.elvena': 'Elvena',
-    'arch.elvenaSub': 'Event Content / Goal / Tools',
-    'arch.elnis': 'Elnis',
-    'arch.elnisSub': 'Listening Hub',
-    'arch.elbot': 'ElBot',
-    'arch.elbotSub': 'Control Layer',
-    'arch.platforms': 'Target Platforms',
-    'arch.platformsSub': 'CLI / QQ / Telegram',
+    'arch.input': 'Input Surfaces',
+    'arch.inputSub': 'CLI / QQ / Telegram / Frontend API',
+    'arch.inputItems': ['Platform adapters', 'Remote CLI', 'Rich messages', 'Actor & scope'],
+    'arch.events': 'Event Perception',
+    'arch.eventsSub': 'Elnis + Elvena + Elwisp',
+    'arch.eventsItems': ['RSS / Webhook', 'Server alerts', 'Game events', 'Scripts & devices'],
+    'arch.core': 'ElBot Core',
+    'arch.coreSub': 'Request, session, context, hooks, tools, and safety in one control layer',
+    'arch.coreItems': ['Agent loop', 'Session & fork', 'Context compression', 'Hook manager', 'ToolRun', 'Risk policy', 'Cron runtime'],
+    'arch.llm': 'LLM & Skills',
+    'arch.llmSub': 'Model routing and token-efficient capabilities',
+    'arch.llmItems': ['Chat mode', 'Work mode', 'Tool discovery', 'ELyph skills'],
+    'arch.output': 'Unified Output',
+    'arch.outputSub': 'One output intent, many targets',
+    'arch.outputItems': ['Text', 'Image', 'File', 'Reply / At', 'Emoticon', 'Streaming'],
+    'arch.storage': 'Persistent State',
+    'arch.storageSub': 'Transparent local data for long-running assistants',
+    'arch.storageItems': ['SQLite', 'Long memory', 'Audit logs', 'Config assets'],
     'start.title': 'Quick Start',
     'start.terminal': 'terminal',
     'start.c1': '# Configure provider',
@@ -81,15 +90,24 @@ const i18n = {
     'features.dual.title': '双模式',
     'features.dual.desc': 'Chat 模式闲聊，Work 模式处理复杂任务。各模式独立模型。',
     'arch.title': '架构',
-    'arch.sources': '外部世界 + Elwisp',
-    'arch.elvena': 'Elvena',
-    'arch.elvenaSub': '事件内容 / 目标 / 工具',
-    'arch.elnis': 'Elnis',
-    'arch.elnisSub': '监听枢纽',
-    'arch.elbot': 'ElBot',
-    'arch.elbotSub': '控制层',
-    'arch.platforms': '目标平台',
-    'arch.platformsSub': 'CLI / QQ / Telegram',
+    'arch.input': '输入入口',
+    'arch.inputSub': 'CLI / QQ / Telegram / 前端 API',
+    'arch.inputItems': ['平台适配', '远程 CLI', '富消息', 'Actor 与 Scope'],
+    'arch.events': '事件感知',
+    'arch.eventsSub': 'Elnis + Elvena + Elwisp',
+    'arch.eventsItems': ['RSS / Webhook', '服务器告警', '游戏事件', '脚本与设备'],
+    'arch.core': 'ElBot 核心',
+    'arch.coreSub': '在统一控制层里管理请求、会话、上下文、Hook、工具和安全策略',
+    'arch.coreItems': ['Agent 循环', '会话与 Fork', '上下文压缩', 'Hook 管理', 'ToolRun', '风险策略', 'Cron 运行时'],
+    'arch.llm': 'LLM 与 Skill',
+    'arch.llmSub': '模型路由与 Token 高效能力扩展',
+    'arch.llmItems': ['Chat 模式', 'Work 模式', '工具发现', 'ELyph Skill'],
+    'arch.output': '统一输出',
+    'arch.outputSub': '一种输出意图，落到多个目标平台',
+    'arch.outputItems': ['文本', '图片', '文件', '回复 / At', '表情', '流式输出'],
+    'arch.storage': '持久状态',
+    'arch.storageSub': '适合长期运行助手的透明本地数据',
+    'arch.storageItems': ['SQLite', '长期记忆', '审计日志', '配置资产'],
     'start.title': '快速开始',
     'start.terminal': '终端',
     'start.c1': '# 配置 Provider',
@@ -132,7 +150,7 @@ function applyLang(lang) {
   });
   // Render architecture blocks
   const archEl = document.getElementById('archDiagram');
-  if (archEl && dict['arch.elvena']) {
+  if (archEl && dict['arch.core']) {
     archEl.innerHTML = buildArchBlocks(dict);
   }
   const toggle = document.getElementById('langToggle');
@@ -159,29 +177,18 @@ document.getElementById('langToggle').addEventListener('click', () => {
 // === Architecture blocks builder ===
 function buildArchBlocks(d) {
   const items = (labels) => labels.map(l => `<span>${l}</span>`).join('');
+  const block = (name, extra = '') => `
+    <div class="arch-block ${extra}">
+      <div class="arch-block-label">${d[`arch.${name}`]}</div>
+      <div class="arch-block-sub">${d[`arch.${name}Sub`]}</div>
+      <div class="arch-block-items">${items(d[`arch.${name}Items`])}</div>
+    </div>`;
   return `
-    <div class="arch-row">
-      <div class="arch-block">
-        <div class="arch-block-label">${d['arch.sources']}</div>
-        <div class="arch-block-sub">Elvena Protocol</div>
-        <div class="arch-block-items">${items(['Server / Log', 'RSS / Webpage', 'Webhook', 'Game Event', 'Script / Device', 'More ...'])}</div>
-      </div>
-    </div>
+    <div class="arch-row">${block('input')}${block('events')}</div>
     <div class="arch-arrow-down"></div>
-    <div class="arch-row">
-      <div class="arch-block arch-block-core arch-block-wide">
-        <div class="arch-block-label">${d['arch.elbot']}</div>
-        <div class="arch-block-sub">${d['arch.elbotSub']}</div>
-        <div class="arch-block-items">${items(['Elnis', 'Agent', 'Hook', 'ToolRun', 'Security', 'Output'])}</div>
-      </div>
-    </div>
+    <div class="arch-row">${block('core', 'arch-block-core arch-block-wide')}</div>
     <div class="arch-arrow-down"></div>
-    <div class="arch-row">
-      <div class="arch-block">
-        <div class="arch-block-label">${d['arch.platforms']}</div>
-        <div class="arch-block-sub">${d['arch.platformsSub']}</div>
-      </div>
-    </div>
+    <div class="arch-row">${block('llm')}${block('storage')}${block('output')}</div>
   `;
 }
 
