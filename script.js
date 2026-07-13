@@ -70,7 +70,7 @@ const i18n = {
     'nav.architecture': '架构',
     'nav.start': '快速开始',
     'hero.label': 'Agent 框架 / Bot',
-    'hero.title': '让 ElBot 感知<br><span class="hero-accent">万物</span>',
+    'hero.title': '让 ElBot <span class="hero-accent">感知一切</span>',
     'hero.sub': '轻量级 Agent 框架，Go 语言实现。<br>Token 高效。可扩展。感知世界。',
     'hero.ctaPrimary': '开始使用',
     'hero.ctaSecondary': '了解更多',

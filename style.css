@@ -64,7 +64,7 @@ a { color: inherit; text-decoration: none; }
   gap: 2rem;
 }
 .nav-links a {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 400;
   color: var(--text-dim);
   transition: color var(--transition);
@@ -73,7 +73,7 @@ a { color: inherit; text-decoration: none; }
 .lang-toggle {
   color: var(--text-faint);
   cursor: pointer;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 400;
   transition: color var(--transition);
   user-select: none;
@@ -119,7 +119,7 @@ a { color: inherit; text-decoration: none; }
   padding: 0 2rem;
 }
 .hero-label {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 400;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -131,6 +131,7 @@ a { color: inherit; text-decoration: none; }
   font-weight: 300;
   line-height: 1.05;
   letter-spacing: -0.04em;
+  white-space: nowrap;
   color: var(--text);
 }
 .hero-accent {
@@ -158,7 +159,7 @@ a { color: inherit; text-decoration: none; }
   background: var(--accent);
   color: #fff;
   border-radius: var(--radius-sm);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 500;
   transition: var(--transition);
 }
@@ -172,7 +173,7 @@ a { color: inherit; text-decoration: none; }
   border: 1px solid var(--line);
   color: var(--text-dim);
   border-radius: var(--radius-sm);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 500;
   transition: var(--transition);
 }
@@ -185,7 +186,7 @@ a { color: inherit; text-decoration: none; }
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   letter-spacing: 0.2em;
   color: var(--text-faint);
   animation: scrollPulse 2s ease-in-out infinite;
@@ -227,7 +228,7 @@ a { color: inherit; text-decoration: none; }
 .stat-label {
   display: block;
   margin-top: 0.5rem;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--text-faint);
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -245,7 +246,7 @@ a { color: inherit; text-decoration: none; }
   gap: 1.5rem;
 }
 .section-num {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 400;
   color: var(--accent);
   letter-spacing: 0.1em;
@@ -288,7 +289,7 @@ a { color: inherit; text-decoration: none; }
   color: var(--text);
 }
 .feature-card p {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 400;
   color: var(--text-dim);
 }
@@ -323,7 +324,7 @@ a { color: inherit; text-decoration: none; }
   background: linear-gradient(135deg, var(--bg-card), #0d1520);
 }
 .arch-label {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -336,8 +337,8 @@ a { color: inherit; text-decoration: none; }
   gap: 0.8rem;
 }
 .arch-items span {
-  padding: 0.3rem 0.9rem;
-  font-size: 0.8rem;
+  padding: 0.35rem 0.95rem;
+  font-size: 0.85rem;
   font-weight: 400;
   color: var(--text-dim);
   border: 1px solid var(--line);
@@ -405,20 +406,24 @@ a { color: inherit; text-decoration: none; }
   max-width: 600px;
 }
 .arch-block-label {
-  font-size: 0.85rem;
+  min-width: 0;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.4rem;
+  overflow-wrap: anywhere;
 }
 .arch-block-core .arch-block-label,
 .arch-block-hook .arch-block-label {
   color: var(--accent);
 }
 .arch-block-sub {
-  font-size: 0.75rem;
+  min-width: 0;
+  font-size: 0.85rem;
   font-weight: 400;
   color: var(--text-faint);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.9rem;
+  overflow-wrap: anywhere;
 }
 .arch-block-items {
   display: flex;
@@ -426,9 +431,11 @@ a { color: inherit; text-decoration: none; }
   gap: 0.5rem;
 }
 .arch-block-items span {
-  padding: 0.25rem 0.7rem;
-  font-size: 0.75rem;
+  max-width: 100%;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.85rem;
   font-weight: 400;
+  overflow-wrap: anywhere;
   color: var(--text-dim);
   border: 1px solid var(--line);
   border-radius: 20px;
@@ -455,8 +462,8 @@ a { color: inherit; text-decoration: none; }
   }
 }
 @media (max-width: 600px) {
-  .arch-row { flex-direction: column; align-items: center; }
-  .arch-row-core { flex-wrap: nowrap; }
+  .hero-content h1 { font-size: clamp(1.8rem, 8vw, 3.5rem); }
+  .arch-row, .arch-row-core { flex-direction: column; align-items: center; flex-wrap: nowrap; }
   .arch-block { width: 100%; max-width: none; }
 }
 
@@ -478,7 +485,7 @@ a { color: inherit; text-decoration: none; }
 .code-header {
   padding: 0.8rem 1.5rem;
   border-bottom: 1px solid var(--line);
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--text-faint);
   letter-spacing: 0.1em;
 }
@@ -542,7 +549,7 @@ footer {
 }
 .footer-brand p {
   margin-top: 0.5rem;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 400;
   color: var(--text-faint);
 }
@@ -551,7 +558,7 @@ footer {
   gap: 2rem;
 }
 .footer-links a {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--text-dim);
   transition: var(--transition);
 }
@@ -563,7 +570,7 @@ footer {
   border-top: 1px solid var(--line);
 }
 .footer-bottom p {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--text-faint);
 }
 
